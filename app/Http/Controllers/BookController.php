@@ -79,9 +79,9 @@ class BookController extends Controller
      *             @OA\Property(property="success", type="boolean", example=true),
      *             @OA\Property(property="data", type="array",
      *                 @OA\Items(
-     *                     @OA\Property(property="book_id", type="integer", example=8),
+     *                     @OA\Property(property="book_id", type="integer", example=1),
      *                     @OA\Property(property="book_name", type="string", example="Prof. Colton Pouros Jr."),
-     *                     @OA\Property(property="read_pages", type="integer", example=49)
+     *                     @OA\Property(property="num_of_read_pages", type="integer", example=28)
      *                 )
      *             ),
      *             @OA\Property(property="message", type="string", example="Most 5 recommended books fetched successfully.")

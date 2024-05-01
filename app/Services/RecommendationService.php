@@ -44,7 +44,7 @@ class RecommendationService
             $mostRecommendedBooks[] = [
                 'book_id' => $book->id,
                 'book_name' => $book->name,
-                'read_pages' => $read_pages - 1
+                'num_of_read_pages' => $read_pages - 1
             ];
             $i++;
             if ($i == 5) {

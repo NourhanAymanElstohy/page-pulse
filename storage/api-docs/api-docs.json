@@ -80,15 +80,15 @@
                                                 "properties": {
                                                     "book_id": {
                                                         "type": "integer",
-                                                        "example": 8
+                                                        "example": 1
                                                     },
                                                     "book_name": {
                                                         "type": "string",
                                                         "example": "Prof. Colton Pouros Jr."
                                                     },
-                                                    "read_pages": {
+                                                    "num_of_read_pages": {
                                                         "type": "integer",
-                                                        "example": 49
+                                                        "example": 28
                                                     }
                                                 },
                                                 "type": "object"
