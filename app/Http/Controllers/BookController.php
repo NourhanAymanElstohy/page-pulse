@@ -12,12 +12,14 @@ use App\Traits\RespondsWithHttpStatus;
 class BookController extends Controller
 {
     private $recommendationService;
+    private $smsService;
 
     use RespondsWithHttpStatus;
 
-    public function __construct(RecommendationService $recommendationService)
+    public function __construct(RecommendationService $recommendationService, SMsService $smsService)
     {
         $this->recommendationService = $recommendationService;
+        $this->smsService = $smsService;
     }
 
     function submitUserInterval(BookRequest $request)
@@ -30,6 +32,7 @@ class BookController extends Controller
             'end_page' => $request->end_page
         ]);
 
+        $this->sendThankYouSms($user);
         return $this->sendResponse([], 'Interval submitted successfully.');
     }
 
@@ -38,5 +41,11 @@ class BookController extends Controller
         $intervals = Interval::with('book')->get();
         $mostRecommendedBooks = $this->recommendationService->getMostRecommendedBooksBasedOnHowManyUniquePagesHaveBeenRead($intervals);
         return $this->sendResponse($mostRecommendedBooks, 'Most 5 recommended books fetched successfully.');
+    }
+
+    function sendThankYouSms(User $user)
+    {
+        $message = "Thank you for using our service, " . $user->name . "!";
+        $this->smsService->sendSms($user->phone_number, $message);
     }
 }
