@@ -114,4 +114,3 @@ You can also access the Postman collection for the API [here](https://drive.goog
 ## License
 
 PagePulse is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute the code as per the terms of the license.
-```
