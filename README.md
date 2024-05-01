@@ -104,10 +104,14 @@ PagePulse includes a comprehensive suite of unit tests to ensure the stability a
 
 ## API Documentation
 
-The API documentation for PagePulse is available [here](http://127.0.0.1:8000/api/documentation).
+You can run the API documentation for PagePulse using this link
+    ```
+    http://127.0.0.1:8000/api/documentation
+    ```
 
 You can also access the Postman collection for the API [here](https://drive.google.com/file/d/1GqrN18X90UclwayUkVNHkNRqvv301569/view?usp=sharing).
 
 ## License
 
 PagePulse is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute the code as per the terms of the license.
+```
