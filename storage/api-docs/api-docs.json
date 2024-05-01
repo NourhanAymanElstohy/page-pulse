@@ -1,0 +1,142 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "PagePulse API",
+        "description": "PagePulse API documentation",
+        "contact": {
+            "email": "nourhanelstohy@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/submit-user-interval": {
+            "post": {
+                "tags": [
+                    "Book"
+                ],
+                "summary": "Submit user interval",
+                "operationId": "d65367717c76186f67eddfae2a02e463",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BookRequest"
+                            },
+                            "example": {
+                                "user_id": 1,
+                                "book_id": 1,
+                                "start_page": 10,
+                                "end_page": 20
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Interval submitted successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Interval submitted successfully."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get-most-recommended-books": {
+            "get": {
+                "tags": [
+                    "Book"
+                ],
+                "summary": "Get most recommended books",
+                "operationId": "3cdbb203b3830466b6bcc800d36336f6",
+                "responses": {
+                    "200": {
+                        "description": "Most 5 recommended books fetched successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "book_id": {
+                                                        "type": "integer",
+                                                        "example": 8
+                                                    },
+                                                    "book_name": {
+                                                        "type": "string",
+                                                        "example": "Prof. Colton Pouros Jr."
+                                                    },
+                                                    "read_pages": {
+                                                        "type": "integer",
+                                                        "example": 49
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Most 5 recommended books fetched successfully."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "BookRequest": {
+                "required": [
+                    "user_id",
+                    "book_id",
+                    "start_page",
+                    "end_page"
+                ],
+                "properties": {
+                    "user_id": {
+                        "description": "The ID of the user",
+                        "type": "integer"
+                    },
+                    "book_id": {
+                        "description": "The ID of the book",
+                        "type": "integer"
+                    },
+                    "start_page": {
+                        "description": "The start page of the interval",
+                        "type": "integer"
+                    },
+                    "end_page": {
+                        "description": "The end page of the interval",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}

@@ -18,7 +18,7 @@ class BookFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'num_of_pages' => $this->faker->numberBetween(1, 100),
+            'num_of_pages' => $this->faker->numberBetween(2, 100),
         ];
     }
 }

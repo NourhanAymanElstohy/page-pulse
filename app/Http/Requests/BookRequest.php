@@ -5,6 +5,32 @@ namespace App\Http\Requests;
 use App\Models\Book;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @OA\Schema(
+ *     schema="BookRequest",
+ *     required={"user_id", "book_id", "start_page", "end_page"},
+ *     @OA\Property(
+ *         property="user_id",
+ *         type="integer",
+ *         description="The ID of the user"
+ *     ),
+ *     @OA\Property(
+ *         property="book_id",
+ *         type="integer",
+ *         description="The ID of the book"
+ *     ),
+ *     @OA\Property(
+ *         property="start_page",
+ *         type="integer",
+ *         description="The start page of the interval"
+ *     ),
+ *     @OA\Property(
+ *         property="end_page",
+ *         type="integer",
+ *         description="The end page of the interval"
+ *     ),
+ * )
+ */
 class BookRequest extends FormRequest
 {
     /**

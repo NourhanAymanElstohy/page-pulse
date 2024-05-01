@@ -20,5 +20,3 @@ Route::controller(BookController::class)->group(function () {
     Route::post('submit-user-interval',  "submitUserInterval");
     Route::get('get-most-recommended-books', "getMostRecommendedBooks");
 });
-
-
