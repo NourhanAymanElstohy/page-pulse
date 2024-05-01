@@ -22,22 +22,16 @@ class BookRequest extends FormRequest
      */
     public function rules(): array
     {
-        $rules =  [
+        return [
             'user_id' => 'required|exists:users,id',
             'book_id' => 'required|exists:books,id',
             'start_page' => 'required|integer|min:1',
-        ];
-
-        $book = Book::find($this->book_id);
-        if ($book)
-            $rules += ['end_page' => 'required|integer|min:1|gte:start_page|max:' . $book->num_of_pages];
-        return $rules;
-    }
-
-    function messages()
-    {
-        return [
-            'end_page.max' => 'The end page field must not be greater than 18 as it is the total number of pages in the book.',
+            'end_page' => ['required', 'integer', 'min:1', 'gte:start_page', function ($attribute, $value, $fail) {
+                $book = Book::find($this->book_id);
+                if ($book && $value > $book->num_of_pages) {
+                    $fail('The ' . $attribute . ' must be less than or equal to ' . $book->num_of_pages . '.');
+                }
+            }]
         ];
     }
 }
