@@ -34,13 +34,17 @@ To run the PagePulse project locally, follow these steps:
 
 3. Create a copy of the `.env.example` file and rename it to `.env`. Update the necessary configuration values such as database credentials.
 
+    ```bash
+    cp .env.example .env
+    ```
+
 4. Generate an application key:
 
     ```bash
     php artisan key:generate
     ```
 
-5. Run the database migrations:
+5. Run the database migrations (**Set the database credentials in .env before migrating**):
     ```bash
     php artisan migrate
     ```
@@ -135,7 +139,7 @@ To run the PagePulse application using Docker, follow these steps:
     docker run  --network host -p  8000:8000 <image id>
     ```
 
-9. Access the application in your web browser at `http://127.0.0.1:8000`.
+9. Access the application in your web browser at `http://localhost:8000`.
 
 Note: The application will be running inside a Docker container, so you don't need to manually install any dependencies or configure the environment. Docker will handle all the necessary setup for you.
 
