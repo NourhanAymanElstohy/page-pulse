@@ -7,6 +7,7 @@ PagePulse is a book recommendation system that suggests books based on the most 
 -   [About PagePulse](#about-pagepulse)
 -   [Getting Started](#getting-started)
 -   [Usage](#usage)
+-   [Running the Application with Docker](#running-the-application-with-docker)
 -   [Unit Tests](#unit-tests)
 -   [API Documentation](#api-documentation)
 -   [License](#license)
@@ -86,6 +87,60 @@ This happens using below apis:
     ```
     The API will return a JSON response with the recommended books.
 
+## Running the Application with Docker
+
+To run the PagePulse application using Docker, follow these steps:
+
+1. Make sure you have Docker installed on your machine. You can download and install Docker from the official website: [https://www.docker.com/get-started](https://www.docker.com/get-started).
+
+2. Clone the repository:
+
+    ```bash
+    git clone https://github.com/NourhanAymanElstohy/page-pulse
+    ```
+
+3. Navigate to the database directory in project:
+
+    ```bash
+    cd page-pulse/database
+    ```
+
+4. Build Mysql Docker image:
+
+    ```bash
+    docker build .
+    ```
+
+5. Run the Mysql Docker container:
+
+    ```bash
+    docker run -p 33061:3306 <image id>
+    ```
+
+6. Open New terminal and Navigate to the project directory:
+
+    ```bash
+    cd page-pulse
+    ```
+
+7. Build the App Docker image:
+
+    ```bash
+    docker build .
+    ```
+
+8. Run the App Docker container:
+
+    ```bash
+    docker run  --network host -p  8000:8000 <image id>
+    ```
+
+9. Access the application in your web browser at `http://127.0.0.1:8000`.
+
+Note: The application will be running inside a Docker container, so you don't need to manually install any dependencies or configure the environment. Docker will handle all the necessary setup for you.
+
+If you encounter any issues or errors during the Docker setup, please refer to the Docker documentation or seek assistance from the Docker community.
+
 ## Unit Tests
 
 PagePulse includes a comprehensive suite of unit tests to ensure the stability and correctness of the codebase. To run the unit tests, follow these steps:
@@ -105,9 +160,7 @@ PagePulse includes a comprehensive suite of unit tests to ensure the stability a
 ## API Documentation
 
 You can run the API documentation for PagePulse using this link
-    ```
-    http://127.0.0.1:8000/api/documentation
-    ```
+`http://127.0.0.1:8000/api/documentation`
 
 You can also access the Postman collection for the API [here](https://drive.google.com/file/d/1GqrN18X90UclwayUkVNHkNRqvv301569/view?usp=sharing).
 
