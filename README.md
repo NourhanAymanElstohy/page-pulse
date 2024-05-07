@@ -7,6 +7,7 @@ PagePulse is a book recommendation system that suggests books based on the most 
 -   [About PagePulse](#about-pagepulse)
 -   [Getting Started](#getting-started)
 -   [Usage](#usage)
+-   [SMS Settings](#sms-settings)
 -   [Running the Application with Docker](#running-the-application-with-docker)
 -   [Unit Tests](#unit-tests)
 -   [API Documentation](#api-documentation)
@@ -90,6 +91,24 @@ This happens using below apis:
     GET /get-recommended-books
     ```
     The API will return a JSON response with the recommended books.
+
+## SMS Settings
+
+Make sure to set SMS Provider settings in .env file to be values provider1 or provider2:
+
+```
+    SMS_PROVIDER=provider1
+```
+
+This is represents the SMS provider settings of [https://run.mocky.io/v3/8eb88272-d769-417c-8c5c-159bb023ec0a](https://run.mocky.io/v3/8eb88272-d769-417c-8c5c-159bb023ec0a)
+
+or
+
+```
+    SMS_PROVIDER=provider2
+```
+
+This is represents the SMS provider settings of [https://run.mocky.io/v3/268d1ff4-f710-4aad-b455-a401966af719](https://run.mocky.io/v3/268d1ff4-f710-4aad-b455-a401966af719)
 
 ## Running the Application with Docker
 
